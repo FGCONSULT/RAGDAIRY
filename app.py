@@ -224,7 +224,7 @@ def configure_llm():
             "App settings → Secrets or set it as an environment variable."
         )
         st.stop()
-    Settings.llm = Groq(model="llama-3.3-70b-versatile", api_key=api_key)
+    Settings.llm = Groq(model="openai/gpt-oss-120b", api_key=api_key)
 
 # --------------------------------------------------------------------------------
 # Chat interface
