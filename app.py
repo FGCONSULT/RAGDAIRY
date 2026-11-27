@@ -3,8 +3,11 @@ RAGDAIRY — Vocalkisan Dairy AI Document Assistant
 Preloaded RAG application for viksitdairy2047.in
 Powered by Groq API
 """
-import nltk
+
 import os
+import uuid
+import streamlit as st
+import nltk
 
 # Download required NLTK data to a writable directory
 nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
@@ -17,9 +20,6 @@ for corpus in ["stopwords", "punkt", "punkt_tab"]:
     except LookupError:
         nltk.download(corpus, download_dir=nltk_data_dir, quiet=True)
 
-import os
-import uuid
-import streamlit as st
 from llama_index.core import Settings, VectorStoreIndex, Document
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
