@@ -3,6 +3,19 @@ RAGDAIRY — Vocalkisan Dairy AI Document Assistant
 Preloaded RAG application for viksitdairy2047.in
 Powered by Groq API
 """
+import nltk
+import os
+
+# Download required NLTK data to a writable directory
+nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
+os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.data.path.append(nltk_data_dir)
+
+for corpus in ["stopwords", "punkt", "punkt_tab"]:
+    try:
+        nltk.data.find(f"corpora/{corpus}" if corpus == "stopwords" else f"tokenizers/{corpus}")
+    except LookupError:
+        nltk.download(corpus, download_dir=nltk_data_dir, quiet=True)
 
 import os
 import uuid
